@@ -54,7 +54,6 @@
                     <configuration>
                         <suiteXmlFiles>
                             <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
-                            <testFailureIgnore>true</testFailureIgnore>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
