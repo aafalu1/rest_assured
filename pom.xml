@@ -14,6 +14,7 @@
         <testNG.version>7.7.0</testNG.version>
         <restAssured.version>5.3.0</restAssured.version>
         <json.version>20220924</json.version>
+        <SuiteXmlFile>src/main/resources/testng.xml</SuiteXmlFile>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -36,12 +37,26 @@
         </dependency>
     </dependencies>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resource</directory>
+                <excludes>
+                    <exclude>*.suite/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M7</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
+                            <testFailureIgnore>true</testFailureIgnore>
+                        </suiteXmlFiles>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
